@@ -10,7 +10,6 @@ Timber::$locations = [
     get_stylesheet_directory() . '/templates/',
 ];
 
-
 function custom_rewrite_tag()
 {
 	add_rewrite_tag('%branche%', '([^&]+)');

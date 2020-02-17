@@ -2,10 +2,9 @@
          style="background-image: url('{{
          Image(branche.meta('featured_image')).src('medium_large')?? '//via.placeholder.com/350x250'
          }}')">
+    <a href="/vacatures/{{ branche.slug }}" title="Bekijk {{ branche.title }} vacatures"></a>
     <section class="animation-container">
-        <a href="{{ branche.link }}" title="Bekijk {{ branche.title }} vacatures">
-            <h3 class="branche-title">{{ branche.title }}</h3>
-        </a>
+        <h3 class="branche-title">{{ branche.title }}</h3>
         <h4 class="payoff">{{ branche.meta('payoff') }}</h4>
     </section>
     <figure class="ml-auto">
