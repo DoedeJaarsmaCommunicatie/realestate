@@ -1,0 +1,13 @@
+.checkarea {
+  cursor: pointer;
+
+  > .checkbox {
+    display: none;
+
+    &:checked {
+      & ~ .label {
+        font-weight: 700;
+      }
+    }
+  }
+}

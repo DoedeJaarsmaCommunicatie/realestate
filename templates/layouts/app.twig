@@ -4,7 +4,7 @@
     {% block head %}{% include 'templates/layouts/helpers/head.twig' %}{% endblock %}
     {{ fn('wp_head') }}
 </head>
-<body {{ fn('body_class') }}>
+<body {{ fn('body_class', 'font-web leading-normal') }}>
 {% block header %}
 {% include 'templates/layouts/helpers/header.twig' %}
 {% endblock %}

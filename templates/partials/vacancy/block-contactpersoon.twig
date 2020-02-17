@@ -1,0 +1,23 @@
+{% if _contactpersoon %}
+    <section class="vacature-contactpersoon mt-4">
+        <h4 class="text-2xl">
+            {{ __('Contactpersoon', 'ppmm') }}
+        </h4>
+        <picture>
+            {% if not _contactpersoon.thumbnail %}
+                <img src="https://ui-avatars.com/api/?name={{ _contactpersoon.title }}" alt="{{ _contactpersoon.title }}" class="profile-pic"/>
+            {% else %}
+                <img src="{{ _contactpersoon.thumbnail.src('medium') }}" alt="{{ _contactpersoon.title }}" class="profile-pic"/>
+            {% endif %}
+        </picture>
+
+        <h6 class="text-xl">{{ _contactpersoon.title }}</h6>
+        <a href="tel:{{ _contactpersoon.meta('phone') }}" class="block underline text-black font-light">{{ _contactpersoon.meta('phone') }}</a>
+        <a href="mailto:{{ _contactpersoon.meta('email') }}" class="block underline text-black font-light">{{ _contactpersoon.meta('email') }}</a>
+
+        <a href="mailto:{{ _contactpersoon.meta('email') }}?subject=Contact m.b.t vacature {{ post.title }}" class="button inline-block my-4">
+            {{ __('Contact opnemen', 'ppmm') }}
+        </a>
+    </section>
+
+{% endif %}

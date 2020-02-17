@@ -1,0 +1,83 @@
+@use "../abstracts" as *;
+
+.home-meer-vacatures {
+  transform: translateX(-50%);
+  color: $black;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.main-content {
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 2rem 0;
+}
+
+.homepage-img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.homepage-branche-tease {
+  $animation-speed: 350ms;
+
+  background-color: #96a1a7;
+  flex: 1 1 calc(50% - 2rem);
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  border-left-width: 12px;
+  border-color: #a2ce50;
+  position: relative;
+  display: flex;
+  min-height: 180px;
+  align-items: center;
+  cursor: pointer;
+  color: $white;
+
+  .payoff {
+    opacity: 0;
+    position: absolute;
+    transition: all $animation-speed ease;
+  }
+
+  .branche-title {
+    transition: all $animation-speed ease;
+  }
+
+  .animation-container {
+    flex: 1 1 auto;
+    position: relative;
+  }
+
+  a::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: ' ';
+  }
+
+  &:hover {
+    .branche-title {
+      margin-top: -1rem;
+      margin-bottom: 1rem;
+    }
+
+    .payoff {
+      transition-delay: $animation-speed/2;
+      opacity: 1;
+    }
+  }
+
+  &:nth-of-type(2),
+  &:last-of-type {
+    margin-right: 0;
+  }
+
+  &:nth-of-type(n + 3) {
+    flex: 1 1 calc(33% - 2rem);
+  }
+}

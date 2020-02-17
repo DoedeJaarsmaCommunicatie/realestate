@@ -1,0 +1,9 @@
+{% extends 'layouts/app.twig' %}
+
+{% block content %}
+    <main class="container mx-auto md:flex md:py-20 p-8">
+        <section class="content w-full py-8 md:w-2/3">
+            {{ post.content|wpautop }}
+        </section>
+    </main>
+{% endblock %}

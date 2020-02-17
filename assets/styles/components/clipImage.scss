@@ -1,0 +1,7 @@
+.clip-me {
+  height: 470px;
+  width: 800px;
+  object-fit: cover;
+  clip-path: polygon(100% 0, 0 0, 0 100%, 8% 90%, 100% 90%);
+  max-width: unset;
+}

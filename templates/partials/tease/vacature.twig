@@ -1,0 +1,32 @@
+<article data-id="{{ post.ID }}" class="tease-vacature">
+    <main class="tease-vacature-main">
+        <strong class="block mb-4">
+            <a href="{{ post.link }}" title="Vacature {{ post.title }}">
+                {% if post.meta('position_filled') %} INGEVULD: {% endif %}{{ post.title }}
+            </a>
+        </strong>
+        <p>
+            {{ post.content|excerpt(25) }}
+        </p>
+        <aside class="flex justify-between flex-col my-auto">
+            <span class="home-tease-vacature__usp hidden"><span class="font-semibold">{{ __('Vakgebied', 'ppmm') }}</span>:
+                {% for branche in post.terms('branche') %}
+                    {{ branche.name|capitalize }}
+                {% endfor %}
+            </span>
+
+            <span class="home-tease-vacature__usp"><span class="font-semibold">{{ __('Regio', 'ppmm') }}</span>: {{ post.terms('regio')[0].name }}</span>
+        </aside>
+    </main>
+    <aside class="tease-vacature-aside">
+        {% if post.meta('position_filled') %}
+            <a class="button disabled" href="{{ post.link }}">
+                {{ __('Vacature ingevuld', 'ppmm') }}
+            </a>
+        {% else %}
+            <a href="{{ post.link }}" class="button" title="Vacature {{ post.title }}">
+                {{ __('Bekijk vacature', 'ppmm') }}
+            </a>
+        {% endif %}
+    </aside>
+</article>

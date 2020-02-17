@@ -1,0 +1,33 @@
+<style>
+.mailchimp-bg {
+    background-image: url({{ Image(options.mc_foto).src('large') }});
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.mailchimp-bg::after {
+    content: ' ';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #a7b3b9;
+    top: 0;
+    left: 0;
+    opacity: 0.77;
+}
+</style>
+<section class="mailchimp-bg bg-secondary-700 py-12">
+    <div class="container mx-auto flex flex-wrap">
+        <div class="md:w-1/3 z-10 pr-8">
+            <h2 class="text-white text-4xl mb-4 px-8 md:px-0">
+                {{ __('Blijf op de hoogte van de nieuwste vacatures', 'ppmm') }}
+            </h2>
+            <p class="text-white hidden md:block">
+                {{  __('Wil je op de hoogte blijven van nieuwe vacatures? Meld je dan aan voor onze nieuwsbrief.', 'ppmm') }}
+            </p>
+        </div>
+        <div class="md:w-1/3 px-8 z-10">
+            <div id="mc-app"></div>
+        </div>
+    </div>
+</section>

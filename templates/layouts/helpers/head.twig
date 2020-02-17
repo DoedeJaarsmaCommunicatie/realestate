@@ -1,0 +1,20 @@
+<meta charset="{{ site.charset }}">
+
+<meta http-equiv="x-ua-compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>{{ wp_title }}</title>
+<meta name="description" content="{{ site.description }}">
+<meta name="base_assets" content="{{ theme.link }}/">
+<script src="https://kit.fontawesome.com/748bef4708.js" crossorigin="anonymous" defer></script>
+
+{% do action('rer_head') %}
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-141689746-1"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'UA-141689746-1');
+</script>

@@ -1,0 +1,129 @@
+{% extends 'layouts/app.twig' %}
+
+{% block content %}
+    {% set _regios = post.terms('regio') %}
+    {% set _branches = post.terms('branche') %}
+    {% set _functies = post.terms('functie') %}
+    {% set _opdrachtgevers = post.terms('opdrachtgever') %}
+    <style>
+        .header-vacature {
+            height: 300px;
+        }
+    </style>
+    <header class="header-vacature bg-primary-500 py-12">
+        <div class="container mx-auto md:flex h-full px-8 md:px-0">
+            <div class="md:w-full flex flex-col h-full">
+                <h1 class="text-white text-4xl">
+                {% if post.meta('position_filled') %}INGEVULD:{% endif %} {{ post.title }}
+                </h1>
+                <span data-scroll="sollicitatieFormulier" class="button mt-auto mr-auto">{{  __('Direct solliciteren', 'ppmm') }}</span>
+            </div>
+        </div>
+    </header>
+    <section class="container mx-auto py-8 md:flex px-8 md:px-0">
+        <a href="{{ fn('get_post_type_archive_link', 'vacature' ) }}{{ _branches[0] }}" class="text-secondary-500 no-underline">{{ __('&lt; terug naar overzicht', 'ppmm') }}</a>
+        <section class="md:w-5/6 ml-auto vacature-demands-container md:mr-6">
+            <div class="">
+                <h2 class="text-2xl text-black mb-4">
+                    {{ __('Vacature', 'ppmm') }}
+                </h2>
+                {% if post.meta('position_filled') %}
+                    <span class="position_filled">Deze positie is ingevuld.</span>
+                {% endif %}
+                <section class="vacature-content">
+                    {{ post.content|shortcodes }}
+                </section>
+            </div>
+        </section>
+    </section>
+    <article class="container mx-auto md:flex py-8 px-8 md:px-0">
+        <main class="md:w-3/4">
+            {% if post.meta('informatie').demands %}
+                <div class="md:flex mb-8">
+                    <aside class="md:w-1/5">
+                        <h4 class="text-2xl">
+                            {{ __('Vereisten', 'ppmm') }}
+                        </h4>
+                    </aside>
+                    <section class="md:w-2/3">
+                        <ul class="vacature-list">
+                            {% for demand in post.meta('informatie').demands %}
+                                <li>{{ demand.value }}</li>
+                            {% endfor %}
+                        </ul>
+                    </section>
+                </div>
+            {% endif %}
+
+            {% if post.meta('informatie').offers %}
+                <div class="md:flex mb-8">
+                    <aside class="md:w-1/5">
+                        <h4 class="text-2xl">
+                            {{ __('Het aanbod', 'ppmm') }}
+                        </h4>
+                    </aside>
+                    <section class="md:w-2/3">
+                        <ul class="vacature-list">
+                            {% for offer in post.meta('informatie').offers %}
+                                <li>{{ offer.value }}</li>
+                            {% endfor %}
+                        </ul>
+                    </section>
+                </div>
+            {% endif %}
+
+            {% if _opdrachtgevers[0] %}
+                <div class="md:flex mb-8">
+                    <aside class="md:w-1/5">
+                        <h4 class="text-2xl">
+                            {{ __('Werken bij <br> %s', 'ppmm')|format(_opdrachtgevers[0]) }}
+                        </h4>
+                    </aside>
+                    <section class="md:w-2/3">
+                        {{ _opdrachtgevers[0].description }}
+                    </section>
+                </div>
+            {% elseif post.meta('opdrachtgever') %}
+                <div class="md:flex mb-8">
+                    <aside class="md:w-1/5">
+                        <h4 class="text-2xl">
+                            {{ __('Werken bij <br> %s', 'ppmm')|format(post.meta('opdrachtgever').naam) }}
+                        </h4>
+                    </aside>
+                    <section class="md:w-2/3">
+                        {{ post.meta('opdrachtgever').about }}
+                    </section>
+                </div>
+            {% endif %}
+        </main>
+        <aside class="md:w-1/4">
+            {% if _opdrachtgevers[0] %}
+                <picture>
+                    <img src="{{ Image(_opdrachtgevers[0].thumbnail).src }}" alt="{{ _opdrachtgevers[0] }}" class="ml-12" />
+                </picture>
+            {% endif %}
+            {{ include('partials/vacancy/block-contactpersoon.twig', { _contactpersoon: Post(post.meta('contactpersoon'))}) }}
+        </aside>
+    </article>
+    <section class="flex container mx-auto px-8 md:px-0" id="sollicitatieFormulier">
+        <div class="md:w-3/4">
+            <div class="md:w-2/3 mx-auto pb-12">
+                {% if post.meta('position_filled') %}
+                    <span class="position_filled">Deze positie is ingevuld. Reageren is niet meer mogelijk. Laat je e-mailadres achter en blijf op de hoogte van nieuwe vacatures!</span>
+                {% else %}
+                    {{ include('partials/vacancy/form-sollicitatie.twig') }}
+                {% endif %}
+            </div>
+        </div>
+    </section>
+    <div class="container mx-auto px-8 mb-8">
+        <h3 class="text-secondary-500 text-2xl my-8">{{  __('Anderen bekeken ook', 'ppmm') }}</h3>
+        <div class="md:flex">
+            {% for vacature in vacatures|slice(0,3) %}
+                {{ include('partials/tease/vacature-home.twig', { post: vacature }) }}
+            {% endfor %}
+        </div>
+    </div>
+{#    {% include 'templates/parts/vacature/struc-data.twig' %}#}
+{% endblock %}
+

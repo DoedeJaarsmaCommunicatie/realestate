@@ -1,0 +1,15 @@
+<span class="text-secondary-500 block">{{ __('Zoek vacature', 'ppmm') }}</span>
+<div class="flex my-4 block">
+    <input
+            type="text"
+            class="search-form-control bg-primary-100 p-2 rounded rounded-r-none w-3/4"
+            id="search" name="search"
+            placeholder="Zoek vacature"
+            {% if app.request.search %}
+                value="{{ app.request.search }}"
+            {% endif %}
+    /><button type="submit" class="button">
+        <label class="search-form-label" for="search"><!--suppress CheckTagEmptyBody -->
+            <i class="fas fa-search"></i></label>
+    </button>
+</div>

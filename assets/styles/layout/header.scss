@@ -1,0 +1,28 @@
+@use '../abstracts/variables' as *;
+
+.header {
+  background: $primary;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-color: adjust-color($primary, $hue: -2, $saturation: -1%, $lightness: 11%);
+
+  position: sticky;
+  z-index: 20;
+
+  .admin-bar & {
+    top: 32px;
+  }
+}
+
+.custom-logo {
+  position: absolute;
+  width: 150px;
+  height: auto;
+}
+
+.menu-item {
+  color: $white;
+  &:hover {
+    color: $secondary;
+  }
+}

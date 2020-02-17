@@ -1,0 +1,48 @@
+<header class="header">
+    <section class="container mx-auto py-4 flex flex-wrap px-4 md:px-0">
+        <div class="site-branding" data-template="helpers.base-header.twig">
+            {{ fn('the_custom_logo') }}
+        </div><!-- .site-branding -->
+
+        <button class="ml-auto md:hidden" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+            <i class="fas fa-bars text-2xl text-secondary-500"></i>
+        </button>
+        <nav class="md:flex md:flex-row md:pb-0 md:relative md:ml-auto md:items-center md:w-auto w-full hidden flex-col pb-2" id="mobile-menu">
+            {% for item in primaryMenu.items %}
+                <section class="flex mx-4 relative"
+                        {% if item.children %}
+                            data-hover-target="hover_{{ item.id }}"
+                        {% endif %}
+                >
+                    <a class="{{ item.classes|join(' ') }}" href="{{ item.link }}">
+                        {{ item.title }}
+                    </a>
+                    {% if item.children %}
+                        <nav class="absolute hidden submenu-container shadow bg-primary-500 p-4 w-content" data-hover-anchor="hover_{{ item.id }}" style="top: 100%; left:0; z-index: 9; padding-top: 2vh;">
+                            {% for child in item.children %}
+                                {% if child.children %}
+                                    <div data-hover-target="hover_mini_{{ child.id }}" class="py-2 px-3 relative">
+                                        <a href="{{ child.link }}" class="submenu-item{{ child.classes|join(' ') }}" >
+                                            {{ child }}
+                                        </a>
+                                        <nav class="d-none position-absolute w-100 babymenu-container bg-secondary" data-hover-anchor="hover_mini_{{ child.id }}">
+                                            {% for baby in child.children %}
+                                                <a href="{{ baby.link }}" class="submenu-item py-2 px-3{{ baby.classes|join(' ') }}" >
+                                                    {{ baby.title }}
+                                                </a>
+                                            {% endfor %}
+                                        </nav>
+                                    </div>
+                                {% else %}
+                                    <a href="{{ child.link }}" class="submenu-item pb-2 block{{ child.classes|join(' ') }}">
+                                        {{ child }}
+                                    </a>
+                                {% endif %}
+                            {% endfor %}
+                        </nav>
+                    {% endif %}
+                </section>
+            {% endfor %}
+        </nav>
+    </section>
+</header>

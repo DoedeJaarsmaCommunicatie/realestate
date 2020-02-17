@@ -1,0 +1,17 @@
+<article class="homepage-branche-tease"
+         style="background-image: url('{{
+         Image(branche.meta('featured_image')).src('medium_large')?? '//via.placeholder.com/350x250'
+         }}')">
+    <section class="animation-container">
+        <a href="{{ branche.link }}" title="Bekijk {{ branche.title }} vacatures">
+            <h3 class="branche-title">{{ branche.title }}</h3>
+        </a>
+        <h4 class="payoff">{{ branche.meta('payoff') }}</h4>
+    </section>
+    <figure class="ml-auto">
+        <img src="{{
+            Image(branche.meta('icon')).src
+            ?? '//via.placeholder.com/150x150'
+        }}" alt="{{ branche.title }}">
+    </figure>
+</article>

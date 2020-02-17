@@ -1,0 +1,26 @@
+<article class="home-tease-vacature md:w-1/3">
+    {% set _regios = post.terms('regio') %}
+    {% set _branches = post.terms('branche') %}
+    {% set _functies = post.terms('functie') %}
+    {% set _opdrachtgevers = post.terms('opdrachtgever') %}
+    <header>
+        <h3 class="text-xl"><a href="{{ post.link }}" title="Vacature {{ post.title }}">{{ post.title }}</a></h3>
+    </header>
+    <main class="flex flex-col home-tease-vacature-main mb-2" style="">
+        {% if _opdrachtgevers[0] %}
+            <p>{{ _opdrachtgevers[0]?? '&nbsp;' }}</p>
+        {% else %}
+            <p>{{ post.meta('opdrachtgever').naam?? '&nbsp;' }}</p>
+        {% endif %}
+
+        <aside class="flex justify-between flex-col my-auto">
+            <span class="home-tease-vacature__usp">
+                <span class="font-semibold">{{ __('Vakgebied', 'ppmm') }}</span>:
+                {{ post.terms('branche')[0].name|capitalize }}
+            </span>
+        </aside>
+    </main>
+    <footer class="mt-auto">
+        <a href="{{ post.link }}" title="Vacature {{ post.title }}" class="button inline-block">{{ __('Bekijk vacature', 'ppmm') }}</a>
+    </footer>
+</article>

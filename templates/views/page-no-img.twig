@@ -1,0 +1,47 @@
+{% extends 'layouts/app.twig' %}
+
+{% block content %}
+    <style>
+        @media screen and (min-width: 768px) {
+            .header-frontpage {
+                height: 300px;
+            }
+        }
+    </style>
+    <header class="header-frontpage bg-primary-500 py-12">
+        <div class="container mx-auto md:flex h-full">
+            <div class="md:w-full flex flex-col md:h-full px-8 md:px-0">
+                <h1 class="text-white text-4xl my-auto">{{ post.title }}</h1>
+                <a href="{{ fn('get_post_type_archive_link', 'vacature' ) }}" class="button  mt-12 md:mt-auto mr-auto">{{  __('Bekijk vacatures', 'ppmm') }}</a>
+            </div>
+        </div>
+    </header>
+    <main class="container mx-auto md:flex md:py-20 p-8">
+        {% if post.children or post.parent.children %}
+        <aside class="md:w-1/4 py-8 hidden md:block">
+            <nav class="border-l-12 border-secondary-500 p-8 bg-primary-200 content sticky" style="top: 2rem;">
+                {% if post.children and not post.parent %}
+                    <ul>
+                        {% for child in post.children('page') %}
+                            <li>
+                                <a href="{{ child.link }}">{{ child.title }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% elseif post.parent.children %}
+                    <ul>
+                        {% for child in post.parent.children('page') %}
+                            <li>
+                                <a href="{{ child.link }}" class="childnavi {{ post.id == child.id? 'active' : '' }}">{{ child.title }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </nav>
+        </aside>
+        {% endif %}
+        <section class="content w-full py-8 md:w-2/3 ml-auto">
+            {{ post.content|wpautop }}
+        </section>
+    </main>
+{% endblock %}
