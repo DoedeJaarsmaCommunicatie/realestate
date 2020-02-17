@@ -732,7 +732,12 @@ p {
   border-color: #a2ce50;
   padding-bottom: 1rem;
   margin-bottom: 1rem;
-  display: flex;
+}
+
+@media screen and (min-width: 769px) {
+  .tease-vacature {
+    display: flex;
+  }
 }
 
 .tease-vacature-aside {

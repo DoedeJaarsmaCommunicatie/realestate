@@ -28,7 +28,9 @@
   border-color: $secondary;
   padding-bottom: 1rem;
   margin-bottom: 1rem;
-  display: flex;
+  @media screen and (min-width: 769px) {
+    display: flex;
+  }
 }
 
 .tease-vacature-aside {
