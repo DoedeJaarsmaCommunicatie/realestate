@@ -1,22 +1,35 @@
 @use "../abstracts" as *;
 
 .home-meer-vacatures {
-  transform: translateX(-50%);
   color: $black;
   margin-left: auto;
   margin-right: auto;
+
+  @media screen and (min-width: 769px) {
+    transform: translateX(-50%);
+  }
 }
 
 .main-content {
-  display: flex;
   margin-right: auto;
   margin-left: auto;
   padding: 2rem 0;
+
+  @media screen and (min-width: 769px) {
+    display: flex;
+  }
 }
 
 .homepage-img {
-  height: 100%;
+  height: 200px;
   object-fit: cover;
+  object-position: top;
+  width: 100%;
+
+  @media screen and (min-width: 769px) {
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 .homepage-branche-tease {
@@ -24,7 +37,6 @@
 
   background-color: #96a1a7;
   flex: 1 1 calc(50% - 2rem);
-  margin-right: 2rem;
   margin-bottom: 2rem;
   padding: 2rem;
   border-left-width: 12px;
@@ -73,12 +85,16 @@
     }
   }
 
-  &:nth-of-type(2),
-  &:last-of-type {
-    margin-right: 0;
-  }
+  @media screen and (min-width: 769px) {
+    margin-right: 2rem;
 
-  &:nth-of-type(n + 3) {
-    flex: 1 1 calc(33% - 2rem);
+    &:nth-of-type(2),
+    &:last-of-type {
+      margin-right: 0;
+    }
+
+    &:nth-of-type(n + 3) {
+      flex: 1 1 calc(33% - 2rem);
+    }
   }
 }

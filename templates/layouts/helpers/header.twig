@@ -9,7 +9,7 @@
         </button>
         <nav class="md:flex md:flex-row md:pb-0 md:relative md:ml-auto md:items-center md:w-auto w-full hidden flex-col pb-2" id="mobile-menu">
             {% for item in primaryMenu.items %}
-                <section class="flex mx-4 relative"
+                <section class="flex md:mx-4 relative flex-col md:flex-row"
                         {% if item.children %}
                             data-hover-target="hover_{{ item.id }}"
                         {% endif %}
@@ -18,26 +18,11 @@
                         {{ item.title }}
                     </a>
                     {% if item.children %}
-                        <nav class="absolute hidden submenu-container shadow bg-primary-500 p-4 w-content" data-hover-anchor="hover_{{ item.id }}" style="top: 100%; left:0; z-index: 9; padding-top: 2vh;">
+                        <nav class="md:absolute md:hidden submenu-container md:shadow bg-primary-500 md:p-4 md:w-content text-right md:text-left" data-hover-anchor="hover_{{ item.id }}" >
                             {% for child in item.children %}
-                                {% if child.children %}
-                                    <div data-hover-target="hover_mini_{{ child.id }}" class="py-2 px-3 relative">
-                                        <a href="{{ child.link }}" class="submenu-item{{ child.classes|join(' ') }}" >
-                                            {{ child }}
-                                        </a>
-                                        <nav class="d-none position-absolute w-100 babymenu-container bg-secondary" data-hover-anchor="hover_mini_{{ child.id }}">
-                                            {% for baby in child.children %}
-                                                <a href="{{ baby.link }}" class="submenu-item py-2 px-3{{ baby.classes|join(' ') }}" >
-                                                    {{ baby.title }}
-                                                </a>
-                                            {% endfor %}
-                                        </nav>
-                                    </div>
-                                {% else %}
-                                    <a href="{{ child.link }}" class="submenu-item pb-2 block{{ child.classes|join(' ') }}">
-                                        {{ child }}
-                                    </a>
-                                {% endif %}
+                                <a href="{{ child.link }}" class="submenu-item pb-2 block{{ child.classes|join(' ') }}">
+                                    {{ child }}
+                                </a>
                             {% endfor %}
                         </nav>
                     {% endif %}

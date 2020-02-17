@@ -7,9 +7,13 @@
   padding: 2rem;
   display: flex;
   flex-direction: column;
+  margin-bottom: 2rem;
 
-  &:nth-of-type(2) {
-    margin: 0 2rem;
+  @media screen and (min-width: 769px) {
+    margin-bottom: 0;
+    &:nth-of-type(2) {
+      margin: 0 2rem;
+    }
   }
 }
 
