@@ -1,5 +1,5 @@
 @use '../abstracts/variables' as *;
-
+/* purgecss start ignore */
 .header {
   background: $primary;
   border-bottom-width: 1px;
@@ -51,3 +51,4 @@
     }
   }
 }
+/* purgecss end ignore */
