@@ -18,6 +18,7 @@ class MenuServiceProvider
      */
     protected $menus = [
         'primary-menu' => 'Primary',
+	    'top-bar-menu' => 'Top bar',
         'footer-menu' => 'Footer menu',
     ];
 

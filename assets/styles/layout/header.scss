@@ -1,7 +1,7 @@
 @use '../abstracts/variables' as *;
 /* purgecss start ignore */
 .header {
-  background: $primary;
+  background: hsla(202, 12%, 58%, .91);
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-color: adjust-color($primary, $hue: -2, $saturation: -1%, $lightness: 11%);
@@ -50,5 +50,21 @@
       padding: 0.5rem 0;
     }
   }
+}
+
+.topbar-menu {
+  padding: 1rem 0;
+  display: flex;
+  @media screen and (max-width: 768px) {
+    flex-wrap: wrap;
+    > .topbar-menu-item {
+      flex: 1 1 auto
+    }
+  }
+
+  @media screen and (min-width: 769px) {
+    justify-content: flex-end;
+  }
+
 }
 /* purgecss end ignore */

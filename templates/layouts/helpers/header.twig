@@ -1,3 +1,16 @@
+<div class="bg-primary-500 px-4 md:px-0">
+    <div class="container mx-auto">
+        <nav class="topbar-menu" role="doc-pagelist">
+            {% for item in topBarMenu.items %}
+                <a title="{{ item.title }}" class="topbar-menu-item md:mx-4 text-white" href="{{ item.link }}">
+                    {{ item.title }}
+                </a>
+            {% endfor %}
+        </nav>
+    </div>
+</div>
+
+
 <header class="header">
     <section class="container mx-auto py-4 flex flex-wrap px-4 md:px-0">
         <div class="site-branding" data-template="helpers.base-header.twig">
@@ -18,7 +31,7 @@
                         {{ item.title }}
                     </a>
                     {% if item.children %}
-                        <nav class="md:absolute md:hidden submenu-container md:shadow bg-primary-500 md:p-4 md:w-content text-right md:text-left" data-hover-anchor="hover_{{ item.id }}" >
+                        <nav class="md:absolute md:hidden submenu-container md:shadow md:bg-primary-500 md:p-4 md:w-content text-right md:text-left" data-hover-anchor="hover_{{ item.id }}" >
                             {% for child in item.children %}
                                 <a href="{{ child.link }}" class="submenu-item pb-2 block{{ child.classes|join(' ') }}">
                                     {{ child }}
