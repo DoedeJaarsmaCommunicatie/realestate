@@ -1,10 +1,11 @@
 <?php
 use Timber\Timber;
 
+define('RER_FUNCTIONS', __FILE__);
+
 include_once get_stylesheet_directory() . '/vendor/autoload.php';
 
 add_theme_support('custom-logo');
-
 
 Timber::$locations = [
 	get_stylesheet_directory() . '/templates/',
