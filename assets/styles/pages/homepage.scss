@@ -47,6 +47,7 @@
   align-items: center;
   cursor: pointer;
   color: $white;
+  background-size: cover;
 
   .payoff {
     opacity: 0;
@@ -83,6 +84,11 @@
       transition-delay: $animation-speed/2;
       opacity: 1;
     }
+  }
+
+  figure {
+    width: 50px;
+    height: 50px;
   }
 
   @media screen and (min-width: 769px) {

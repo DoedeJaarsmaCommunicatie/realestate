@@ -51,6 +51,30 @@
             "mime_types": ""
         },
         {
+            "key": "field_5e4a76eb2fcb3",
+            "label": "Icoon wit",
+            "name": "icon_white",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
             "key": "field_5e4a8f2a85429",
             "label": "Payoff",
             "name": "payoff",

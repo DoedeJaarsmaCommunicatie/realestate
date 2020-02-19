@@ -19,6 +19,24 @@ $context['vacatures'] = VacancyFactory::build()
 	->randomOrder()
 	->fetch();
 
-$context['branches'] = Timber::get_terms('branche');
+$branches = Timber::get_terms([
+	'taxonomy' => 'branche',
+	'orderby' => 'id',
+	'order' => 'ASC'
+]);
+
+foreach ($branches as $key => $branch) {
+	if ($branch->slug === 'makelaar') {
+		unset($branches[$key]);
+		array_unshift($branches, $branch);
+	}
+}
+
+$branches = array_filter($branches, static function ($item) {
+	return $item instanceof \Timber\Term;
+});
+
+
+$context['branches'] = $branches;
 
 Timber::render(Template::viewTwigFile('front-page'), $context);

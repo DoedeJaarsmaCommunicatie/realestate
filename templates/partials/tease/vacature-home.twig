@@ -15,8 +15,11 @@
 
         <aside class="flex justify-between flex-col my-auto">
             <span class="home-tease-vacature__usp">
-                <span class="font-semibold">{{ __('Vakgebied', 'ppmm') }}</span>:
-                {{ post.terms('branche')[0].name|capitalize }}
+                {% for branche in post.terms('branche') %}
+                    <figure>
+                        <img src="{{ Image(branche.meta('icon')).src }}" />
+                    </figure>
+                {% endfor %}
             </span>
         </aside>
     </main>
