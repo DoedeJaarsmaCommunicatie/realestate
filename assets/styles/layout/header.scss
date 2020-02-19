@@ -8,9 +8,14 @@
 
   position: sticky;
   z-index: 20;
+  top: 0;
 
   .admin-bar & {
     top: 32px;
+
+    @media screen and (max-width: 768px) {
+      top: 0;
+    }
   }
 }
 
@@ -54,9 +59,12 @@
 
 .topbar-menu {
   padding: 1rem 0;
-  display: flex;
+
   @media screen and (max-width: 768px) {
-    flex-wrap: wrap;
+    &:not(.hidden) {
+      display: flex;
+    }
+    flex-direction: column;
     > .topbar-menu-item {
       flex: 1 1 auto
     }
