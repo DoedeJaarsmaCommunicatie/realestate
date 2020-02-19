@@ -15,7 +15,7 @@
                 <a href="{{ fn('get_post_type_archive_link', 'vacature' ) }}" class="button  mt-12 md:mt-auto mr-auto">{{  __('Bekijk vacatures', 'ppmm') }}</a>
             </div>
             <div class="md:w-1/2 ml-auto relative hidden md:block">
-                <picture class="md:absolute"  style="right: 0;">
+                <picture class="md:absolute" style="right: 0;">
                     {% if post.thumbnail %}
                         {% set _img = post.thumbnail %}
                     {% else %}

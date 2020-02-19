@@ -13,10 +13,12 @@ use App\Factory\VacancyFactory;
 
 $context                           = Timber::get_context();
 $context['post']                   = new Post();
+$context['vacatures_count'] = wp_count_posts('vacature')->publish;
 $context['vacatures'] = VacancyFactory::build()
 	->setDefaults()
 	->notFilled()
 	->randomOrder()
+	->unlimitedPosts()
 	->fetch();
 
 $branches = Timber::get_terms([

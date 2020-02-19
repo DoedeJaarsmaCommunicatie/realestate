@@ -20,7 +20,7 @@
             </div>
             <div class="flex w-full mt-8">
                 <span class="text-secondary-500 font-title font-light">
-                    {{ __("%d van de %d vacatures", 'ppmm')|format(vacatures|slice(0,3)|length, vacatures|length) }}
+                    {{ __("%d van de %d vacatures", 'ppmm')|format(vacatures|slice(0,3)|length, vacatures_count) }}
                 </span>
 
                 <a href="{{ fn('get_post_type_archive_link', 'vacature' ) }}vastgoed" title="Vastgoed vacatures" class="home-meer-vacatures font-light">
