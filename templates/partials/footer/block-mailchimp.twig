@@ -1,6 +1,6 @@
 <style>
 .mailchimp-bg {
-    background-image: url({{ Image(options.mc_foto).src('large') }});
+    background-image: url({{ Image(fn('get_field', 'mc_foto', 'option')).src('large') }});
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
@@ -48,11 +48,17 @@
                         <label for="mce-group[3397]-3397-1">Vastgoed</label>
                     </li>
                     <li class="no-style">
-                        <input type="checkbox" value="4" name="group[3397][4]" id="mce-group[3397]-3397-2"><label for="mce-group[3397]-3397-2">Interim</label></li>
+                        <input type="checkbox" value="4" name="group[3397][4]" id="mce-group[3397]-3397-2">
+                        <label for="mce-group[3397]-3397-2">Interim</label>
+                    </li>
                     <li class="no-style">
-                        <input type="checkbox" value="8" name="group[3397][8]" id="mce-group[3397]-3397-3"><label for="mce-group[3397]-3397-3">Finance</label></li>
+                        <input type="checkbox" value="8" name="group[3397][8]" id="mce-group[3397]-3397-3">
+                        <label for="mce-group[3397]-3397-3">Finance</label>
+                    </li>
                     <li class="no-style">
-                        <input type="checkbox" value="16" name="group[3397][16]" id="mce-group[3397]-3397-4"><label for="mce-group[3397]-3397-4">Legal</label></li>
+                        <input type="checkbox" value="16" name="group[3397][16]" id="mce-group[3397]-3397-4">
+                        <label for="mce-group[3397]-3397-4">Legal</label>
+                    </li>
                 </ul>
                 <button type="submit" class="button mt-4 block">Aanmelden</button>
             </form>

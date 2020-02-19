@@ -4,9 +4,17 @@ namespace App\Providers;
 
 class OptionsServiceProvider implements ServiceProvider
 {
+	public function __construct () {
+		$this->boot();
+	}
+
 	public function boot(): void
 	{
 		if (!function_exists('acf_add_options_page')) {
+			return;
+		}
+
+		if (!is_admin()) {
 			return;
 		}
 

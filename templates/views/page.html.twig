@@ -19,7 +19,7 @@
                     {% if post.thumbnail %}
                         {% set _img = post.thumbnail %}
                     {% else %}
-                        {% set _img = Image(options.header_vacature) %}
+                        {% set _img = Image(fn('get_field', 'header_vacature', 'option')) %}
                     {% endif %}
                     <source srcset="{{ _img.src('medium') }}" media="(max-width: 413px)" />
                     <source srcset="{{ _img.src('medium_large') }}" media="(min-width: 414px) and (max-width: 768px)" />

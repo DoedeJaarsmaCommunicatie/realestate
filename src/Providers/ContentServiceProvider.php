@@ -10,7 +10,6 @@ class ContentServiceProvider implements ServiceProvider
 
 	public function addOptions($context)
 	{
-		$context['options'] = get_fields('option');
 		$context['app'] ['request'] = $_REQUEST;
 
 		return $context;
