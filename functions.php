@@ -11,26 +11,6 @@ Timber::$locations = [
 	get_stylesheet_directory() . '/templates/',
 ];
 
-function custom_rewrite_tag()
-{
-	add_rewrite_tag('%branche%', '([^&]+)');
-}
-
-add_action('init', 'custom_rewrite_tag', 10, 0);
-
-function custom_rewrite_rule()
-{
-	add_rewrite_rule('vacatures/page/?([0-9]{1,})/?$', 'index.php?post_type=vacature&paged=$matches[1]', 'top');
-
-	add_rewrite_rule('vacatures/([^/]*)/regio/([^/]*)/page/?([0-9]{1,})/?', 'index.php?post_type=vacature&branche=$matches[1]&regio[]=$matches[2]&paged=$matches[3]', 'top');
-	add_rewrite_rule('vacatures/([^/]*)/regio/([^/]*)/?', 'index.php?post_type=vacature&branche=$matches[1]&regio[]=$matches[2]', 'top');
-
-	add_rewrite_rule('vacatures/([^/]*)/page/?([0-9]{1,})/?', 'index.php?post_type=vacature&branche=$matches[1]&paged=$matches[2]', 'top');
-	add_rewrite_rule('vacatures/([^/]*)/?', 'index.php?post_type=vacature&branche=$matches[1]', 'top');
-}
-
-add_action('init', 'custom_rewrite_rule', 10, 0);
-
 function my_pre_get_posts($query)
 {
 	// do not modify queries in the admin or homepage or feed
