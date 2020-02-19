@@ -101,6 +101,7 @@
 
     &:nth-of-type(n + 3) {
       flex: 1 1 calc(33% - 2rem);
+      margin-bottom: 0;
     }
   }
 }

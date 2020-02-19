@@ -12,18 +12,18 @@
     </header>
     <section class="bg-primary-200 py-12">
         <div class="container mx-auto px-8 md:px-0">
-            <h3 class="text-2xl my-8">{{  __('Nieuwe vacatures', 'ppmm') }}</h3>
+            <h3 class="text-2xl mb-8">{{  __('Nieuwe vacatures', 'ppmm') }}</h3>
             <div class="md:flex">
                 {% for vacature in vacatures|slice(0,3) %}
                     {% include 'partials/tease/vacature-home.twig' with { post: vacature } only %}
                 {% endfor %}
             </div>
             <div class="md:flex w-full mt-8">
-                <p class="font-title font-light">
+                <p class="font-title">
                     {{ __("%d van de %d vacatures", 'ppmm')|format(vacatures|slice(0,3)|length, vacatures_count) }}
                 </p>
 
-                <a href="{{ fn('get_post_type_archive_link', 'vacature' ) }}vastgoed" title="Vastgoed vacatures" class="home-meer-vacatures font-light font-title block text-center md:text-left">
+                <a href="{{ fn('get_post_type_archive_link', 'vacature' ) }}" title="Vacatures" class="home-meer-vacatures font-title block text-center md:text-left">
                     {{ __('Bekijk alle vacatures', 'ppmm') }}
                 </a>
             </div>

@@ -3,11 +3,9 @@
 .chimp-form {
   position: relative;
   background: abstracts.$white;
-  border-radius: 5px;
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  border-bottom-left-radius: 0;
 
   > input {
     border-bottom: 1px solid #8797a0;
