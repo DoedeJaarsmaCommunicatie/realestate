@@ -38,7 +38,7 @@
     </section>
     <article class="container mx-auto md:flex py-8 px-8 md:px-0">
         <main class="md:w-3/4">
-            {% if post.meta('informatie').demands %}
+            {% if fn('get_field', 'informatie', post.id).demands %}
                 <div class="md:flex mb-8">
                     <aside class="md:w-1/5">
                         <h4 class="text-2xl">
@@ -47,7 +47,7 @@
                     </aside>
                     <section class="md:w-2/3">
                         <ul class="vacature-list">
-                            {% for demand in post.meta('informatie').demands %}
+                            {% for demand in fn('get_field', 'informatie', post.id).demands %}
                                 <li>{{ demand.value }}</li>
                             {% endfor %}
                         </ul>
@@ -55,7 +55,7 @@
                 </div>
             {% endif %}
 
-            {% if post.meta('informatie').offers %}
+            {% if fn('get_field', 'informatie', post.id).offers %}
                 <div class="md:flex mb-8">
                     <aside class="md:w-1/5">
                         <h4 class="text-2xl">
@@ -64,7 +64,7 @@
                     </aside>
                     <section class="md:w-2/3">
                         <ul class="vacature-list">
-                            {% for offer in post.meta('informatie').offers %}
+                            {% for offer in fn('get_field', 'informatie', post.id).offers %}
                                 <li>{{ offer.value }}</li>
                             {% endfor %}
                         </ul>
@@ -124,6 +124,6 @@
             {% endfor %}
         </div>
     </div>
-{#    {% include 'templates/parts/vacature/struc-data.twig' %}#}
+    {{ include('partials/std/vacancy.html.twig') }}
 {% endblock %}
 

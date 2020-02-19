@@ -1,0 +1,17 @@
+<script type="application/ld+json">
+ {
+  "@context" : "https://schema.org/",
+  "@type" : "JobPosting",
+  "title" : "{{ post.title }}",
+  "description" : "{{ post.content|excerpt(25) }}",
+  "datePosted" : "{{ post.date('Y-m-d') }}",
+  "hiringOrganization": {
+      "@type": "Organization",
+      "name": "{{ post.meta('opdrachtgever').name?? 'Real Estate Recruiters' }}"
+  },
+  "jobLocation": {
+      "@type": "Place",
+      "address": "{{ post.terms('regio')[0].name }}"
+  }
+}
+</script>
