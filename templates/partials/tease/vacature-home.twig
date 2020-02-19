@@ -6,7 +6,7 @@
     <header>
         <h3 class="text-xl"><a href="{{ post.link }}" title="Vacature {{ post.title }}">{{ post.title }}</a></h3>
     </header>
-    <main class="flex flex-col home-tease-vacature-main mb-2" style="">
+    <main class="flex flex-col home-tease-vacature-main my-auto mb-4">
         {% if _opdrachtgevers[0] %}
             <p>{{ _opdrachtgevers[0]?? '&nbsp;' }}</p>
         {% else %}
@@ -15,9 +15,9 @@
 
         <aside class="flex justify-between flex-col my-auto">
             <span class="home-tease-vacature__usp">
-                {% for branche in post.terms('branche') %}
+                {% for branch in post.terms('branche') %}
                     <figure>
-                        <img src="{{ Image(branche.meta('icon')).src }}" />
+                        <img src="{{ Image(branch.meta('icon')).src }}" alt="{{ Image(branch.meta('icon')).alt }}" />
                     </figure>
                 {% endfor %}
             </span>
