@@ -136,6 +136,8 @@ class ComposerStaticInitd478b73b9349bee22e9b4091ab0df69b
 
     public static $classMap = array (
         'AltoRouter' => __DIR__ . '/..' . '/altorouter/altorouter/AltoRouter.php',
+        'App\\Controllers\\Actions\\PositionFilledAction' => __DIR__ . '/../..' . '/src/Controllers/Actions/PositionFilledAction.php',
+        'App\\Controllers\\Filters\\VacancyFilledFilter' => __DIR__ . '/../..' . '/src/Controllers/Filters/VacancyFilledFilter.php',
         'App\\Controllers\\Http\\Vacatures\\VacatureController' => __DIR__ . '/../..' . '/src/Controllers/Http/Vacatures/VacatureController.php',
         'App\\Controllers\\Resources\\CPT' => __DIR__ . '/../..' . '/src/Controllers/Resources/CPT.php',
         'App\\Controllers\\Resources\\Taxonomies\\Tax' => __DIR__ . '/../..' . '/src/Controllers/Resources/Taxonomies/Tax.php',
@@ -153,11 +155,14 @@ class ComposerStaticInitd478b73b9349bee22e9b4091ab0df69b
         'App\\Helpers\\Str' => __DIR__ . '/../..' . '/src/helpers/Str.php',
         'App\\Helpers\\Template' => __DIR__ . '/../..' . '/src/helpers/Template.php',
         'App\\Helpers\\WP' => __DIR__ . '/../..' . '/src/helpers/WP.php',
+        'App\\Providers\\ActionServiceProvider' => __DIR__ . '/../..' . '/src/Providers/ActionServiceProvider.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/src/Providers/AppServiceProvider.php',
         'App\\Providers\\AssetServiceProvider' => __DIR__ . '/../..' . '/src/Providers/AssetServiceProvider.php',
         'App\\Providers\\ContentServiceProvider' => __DIR__ . '/../..' . '/src/Providers/ContentServiceProvider.php',
+        'App\\Providers\\FilterServiceProvider' => __DIR__ . '/../..' . '/src/Providers/FilterServiceProvider.php',
         'App\\Providers\\MenuServiceProvider' => __DIR__ . '/../..' . '/src/Providers/MenuServiceProvider.php',
         'App\\Providers\\OptionsServiceProvider' => __DIR__ . '/../..' . '/src/Providers/OptionsServiceProvider.php',
+        'App\\Providers\\RewriteServiceProvider' => __DIR__ . '/../..' . '/src/Providers/RewriteServiceProvider.php',
         'App\\Providers\\ServiceProvider' => __DIR__ . '/../..' . '/src/Providers/ServiceProvider.php',
         'Asm89\\Twig\\CacheExtension\\CacheProviderInterface' => __DIR__ . '/..' . '/asm89/twig-cache-extension/lib/Asm89/Twig/CacheExtension/CacheProviderInterface.php',
         'Asm89\\Twig\\CacheExtension\\CacheProvider\\DoctrineCacheAdapter' => __DIR__ . '/..' . '/asm89/twig-cache-extension/lib/Asm89/Twig/CacheExtension/CacheProvider/DoctrineCacheAdapter.php',

@@ -7,6 +7,8 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'AltoRouter' => $vendorDir . '/altorouter/altorouter/AltoRouter.php',
+    'App\\Controllers\\Actions\\PositionFilledAction' => $baseDir . '/src/Controllers/Actions/PositionFilledAction.php',
+    'App\\Controllers\\Filters\\VacancyFilledFilter' => $baseDir . '/src/Controllers/Filters/VacancyFilledFilter.php',
     'App\\Controllers\\Http\\Vacatures\\VacatureController' => $baseDir . '/src/Controllers/Http/Vacatures/VacatureController.php',
     'App\\Controllers\\Resources\\CPT' => $baseDir . '/src/Controllers/Resources/CPT.php',
     'App\\Controllers\\Resources\\Taxonomies\\Tax' => $baseDir . '/src/Controllers/Resources/Taxonomies/Tax.php',
@@ -24,11 +26,14 @@ return array(
     'App\\Helpers\\Str' => $baseDir . '/src/helpers/Str.php',
     'App\\Helpers\\Template' => $baseDir . '/src/helpers/Template.php',
     'App\\Helpers\\WP' => $baseDir . '/src/helpers/WP.php',
+    'App\\Providers\\ActionServiceProvider' => $baseDir . '/src/Providers/ActionServiceProvider.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/src/Providers/AppServiceProvider.php',
     'App\\Providers\\AssetServiceProvider' => $baseDir . '/src/Providers/AssetServiceProvider.php',
     'App\\Providers\\ContentServiceProvider' => $baseDir . '/src/Providers/ContentServiceProvider.php',
+    'App\\Providers\\FilterServiceProvider' => $baseDir . '/src/Providers/FilterServiceProvider.php',
     'App\\Providers\\MenuServiceProvider' => $baseDir . '/src/Providers/MenuServiceProvider.php',
     'App\\Providers\\OptionsServiceProvider' => $baseDir . '/src/Providers/OptionsServiceProvider.php',
+    'App\\Providers\\RewriteServiceProvider' => $baseDir . '/src/Providers/RewriteServiceProvider.php',
     'App\\Providers\\ServiceProvider' => $baseDir . '/src/Providers/ServiceProvider.php',
     'Asm89\\Twig\\CacheExtension\\CacheProviderInterface' => $vendorDir . '/asm89/twig-cache-extension/lib/Asm89/Twig/CacheExtension/CacheProviderInterface.php',
     'Asm89\\Twig\\CacheExtension\\CacheProvider\\DoctrineCacheAdapter' => $vendorDir . '/asm89/twig-cache-extension/lib/Asm89/Twig/CacheExtension/CacheProvider/DoctrineCacheAdapter.php',

@@ -33,7 +33,7 @@ class VacancyFactory
 		return $this;
 	}
 
-	public function notFilled()
+	public function notFilled(): self
 	{
 		$this->setArg('meta_query', [
 			'relation' => 'OR',
