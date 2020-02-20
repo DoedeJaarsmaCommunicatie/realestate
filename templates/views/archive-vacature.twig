@@ -4,7 +4,16 @@
     <header class="container mx-auto pt-8 md:pt-24 px-8 md:px-0">
         <div class="md:w-2/3 md:ml-auto">
             <h1 class="text-4xl text-secondary-500 mb-4">
-                {{ __('Actuele %s vacatures', 'ppmm')|format(query.query_vars.branche) }}
+                {% if branch %}
+                    {% if branch.slug is same as('interim') %}
+                        {{ __('Actuele %s opdrachten en projecten', 'ppmm')|format(branch.title|lower) }}
+                    {% else %}
+                        {{ __('Actuele %s vacatures', 'ppmm')|format(branch.title|lower) }}
+                    {% endif %}
+                {% else %}
+                    {{ __('Actuele %s vacatures', 'ppmm')|format(query.query_vars.branche) }}
+                {% endif %}
+
                 {% if query.query_vars.regio %}
                     {{ __('in %s')|format(query.query_vars.regio|join(' &amp; ')) }}
                 {% endif %}
@@ -115,7 +124,10 @@
                 {{ include('partials/archive/pagination.twig') }}
             </aside>
             <p class="mt-4">
-                {{ __('Ben je op zoek naar een functie bij een projectontwikkelaar, bouwonderneming, woningbouwcorporatie, vastgoedbelegger, bedrijfsmakelaar, gespecialiseerd taxatiebureau of vastgoedbeheerder? Real Estate Recruiters heeft veel vacatures bij gerenommeerde vastgoedorganisaties en makelaardijen. Zij zijn op zoek naar talentvolle professionals.', 'ppmm') }}
+                Ben je op zoek naar een functie bij een projectontwikkelaar, bouwonderneming, woningbouwcorporatie, vastgoedbelegger, (bedrijfs-) makelaardij, notariskantoor, advocatenkantoor, financieel adviesbureau, gespecialiseerd taxatiebureau of vastgoedbeheerder?
+            </p>
+            <p>
+                Real Estate Recruiters heeft veel vacatures bij gerenommeerde vastgoedorganisaties, makelaardijen, financiele en juridische organisaties. Zij zijn op zoek naar talentvolle professionals.
             </p>
         </main>
     </section>

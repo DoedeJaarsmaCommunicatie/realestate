@@ -6,6 +6,7 @@ define('RER_FUNCTIONS', __FILE__);
 include_once get_stylesheet_directory() . '/vendor/autoload.php';
 
 add_theme_support('custom-logo');
+add_theme_support('post-thumbnails');
 
 Timber::$locations = [
 	get_stylesheet_directory() . '/templates/',

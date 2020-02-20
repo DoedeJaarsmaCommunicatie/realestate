@@ -5,9 +5,7 @@ use Timber\Timber;
 use Timber\PostQuery;
 use App\Helpers\Template;
 
-$templates = [
-	Template::viewTwigFile('archive-vacature'),
-];
+$templates = [Template::viewTwigFile('archive-vacature'),];
 
 $context = Timber::get_context();
 
@@ -51,7 +49,9 @@ $context['organisations'] = get_terms([
 $context['query'] = $wp_query;
 
 if (isset($wp_query->query_vars['branche'])) {
-    $context['post'] = get_term_by('slug', $wp_query->query_vars['branche'], 'branche');
+	$context['branch'] = Timber::get_term($wp_query->query_vars['branche'], 'branche');
+} else {
+	$context['branch'] = false;
 }
 
 Timber::render($templates, $context);
