@@ -1,4 +1,4 @@
-<div class="bg-primary-500 px-4 md:px-0">
+<div class="bg-primary-500 px-4 md:px-0 hidden md:block">
     <div class="container mx-auto flex flex-wrap">
         <button class="ml-auto md:hidden block py-4" onclick="document.getElementById('topbar-menu').classList.toggle('hidden')">
             <i class="fas fa-bars text-2xl text-secondary-500"></i>
@@ -17,7 +17,7 @@
 
 
 <header class="header">
-    <section class="container mx-auto py-4 flex flex-wrap px-4 md:px-0">
+    <section class="container mx-auto py-4 flex flex-wrap px-8 md:px-0">
         <div class="site-branding" data-template="helpers.base-header.twig">
             {{ fn('the_custom_logo') }}
         </div><!-- .site-branding -->
@@ -28,6 +28,27 @@
         <nav class="md:flex md:flex-row md:pb-0 md:relative md:ml-auto md:items-center md:w-auto w-full hidden flex-col pb-2" id="mobile-menu">
             {% for item in primaryMenu.items %}
                 <section class="flex md:mx-4 relative flex-col md:flex-row"
+                        {% if item.children %}
+                            data-hover-target="hover_{{ item.id }}"
+                        {% endif %}
+                >
+                    <a class="{{ item.classes|join(' ') }}" href="{{ item.link }}">
+                        {{ item.title }}
+                    </a>
+                    {% if item.children %}
+                        <nav class="md:absolute md:hidden submenu-container md:shadow md:bg-primary-500 md:p-4 md:w-content text-right md:text-left" data-hover-anchor="hover_{{ item.id }}" >
+                            {% for child in item.children %}
+                                <a href="{{ child.link }}" class="submenu-item pb-2 block{{ child.classes|join(' ') }}">
+                                    {{ child }}
+                                </a>
+                            {% endfor %}
+                        </nav>
+                    {% endif %}
+                </section>
+            {% endfor %}
+
+            {% for item in topBarMenu.items %}
+                <section class="flex md:mx-4 relative flex-col md:flex-row md:hidden"
                         {% if item.children %}
                             data-hover-target="hover_{{ item.id }}"
                         {% endif %}
