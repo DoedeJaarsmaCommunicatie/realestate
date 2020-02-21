@@ -32,7 +32,7 @@
     </div>
 
     <div class="input-group">
-        <label for="functie">{{ __('Beoogde functie', 'ppmm') }}</label>
+        <label for="functie">{{ __('Gewenste functie', 'ppmm') }}</label>
         <input type="text" name="functie" id="functie">
     </div>
 
@@ -41,9 +41,9 @@
         <textarea name="motivatie" id="motivatie" rows="4"></textarea>
     </div>
 
-    <div class="input-group">
+    <div class="input-group content">
+        <label for="cv">{{  __('Upload CV', 'ppmm') }}</label>
         <input type="file" id="cv" name="cv" />
-        <label for="cv" class="button">{{  __('Upload CV', 'ppmm') }}</label>
     </div>
 
     <input type="hidden" name="origin" id="origin" value="{{ site.id }}">

@@ -12,17 +12,17 @@
         </div>
     </header>
     <main class="container main-content px-8 md:px-0">
-        <aside class="md:w-1/3 hidden lg:block">
+        <aside class="md:w-2/3 hidden lg:block md:mr-8 pb-0">
             {% set _imgContent = Image(post.meta('foto_content')) %}
-            <picture>
+            <picture class="mb-4 block">
                 <source srcset="{{ _imgContent.src('medium') }}" media="(max-width: 413px)" />
                 <source srcset="{{ _imgContent.src('medium_large') }}" media="(min-width: 414px) and (max-width: 768px)" />
                 <img src="{{ _imgContent.src('large') }}" alt="{{ _imgContent.alt }}"  class="homepage-img">
             </picture>
+            <section class="content">
+                {{ post.content|wpautop|shortcodes }}
+            </section>
         </aside>
-        <section class="content md:w-1/3 md:mx-8 md:py-8 pb-0">
-            {{ post.content|wpautop|shortcodes }}
-        </section>
         <aside class="md:w-1/3">
             <article class="border-l-12 border-secondary-500 bg-primary-200 p-8 content">
                 {{ post.meta('sidebar_content') }}
