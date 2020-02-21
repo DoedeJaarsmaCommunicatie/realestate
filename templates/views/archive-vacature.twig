@@ -18,9 +18,14 @@
                     {{ __('in %s')|format(query.query_vars.regio|join(' &amp; ')) }}
                 {% endif %}
             </h1>
-            <p>
-                {{ __(post.description, 'ppmm') }}
-            </p>
+            {% if branch %}
+                <section class="branch-description--wrapper">
+                    <p class="branch-description">
+                        {{ branch.description }}
+                    </p>
+                    <img src="{{ Image(branch.meta('icon')).src }}" class="branch-icon" />
+                </section>
+            {% endif %}
         </div>
     </header>
 

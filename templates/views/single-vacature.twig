@@ -13,9 +13,17 @@
     <header class="header-vacature bg-primary-500 py-12">
         <div class="container mx-auto md:flex h-full px-8 md:px-0">
             <div class="md:w-full flex flex-col h-full">
-                <h1 class="text-white text-4xl">
+                <h1 class="text-white text-4xl mb-2">
                 {% if post.meta('position_filled') %}INGEVULD:{% endif %} {{ post.title }}
                 </h1>
+                <section class="hidden lg:flex">
+                    {% for branch in post.terms('branche') %}
+                        <a href="/vacatures/{{ branch.slug }}" class="p-2 border border-white flex items-center rounded mr-4 text-white">
+                            {{ branch.title }}
+                            <img src="{{ Image(branch.meta('icon_white')).src('medium') }}" class="w-4 h-4 ml-2" />
+                        </a>
+                    {% endfor %}
+                </section>
                 <span data-scroll="sollicitatieFormulier" class="button mt-auto mr-auto">{{  __('Direct solliciteren', 'ppmm') }}</span>
             </div>
         </div>

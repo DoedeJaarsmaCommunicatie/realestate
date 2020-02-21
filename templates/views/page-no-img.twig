@@ -4,7 +4,7 @@
     <style>
         @media screen and (min-width: 768px) {
             .header-frontpage {
-                height: 300px;
+                height: 140px;
             }
         }
     </style>
@@ -12,7 +12,6 @@
         <div class="container mx-auto md:flex h-full">
             <div class="md:w-full flex flex-col md:h-full px-8 md:px-0">
                 <h1 class="text-white text-4xl my-auto">{{ post.title }}</h1>
-                <a href="{{ fn('get_post_type_archive_link', 'vacature' ) }}" class="button  mt-12 md:mt-auto mr-auto">{{  __('Bekijk vacatures', 'ppmm') }}</a>
             </div>
         </div>
     </header>

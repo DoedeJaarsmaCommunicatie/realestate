@@ -7,6 +7,7 @@
  */
 
 use Timber\Post;
+use Timber\Term;
 use Timber\Timber;
 use App\Helpers\Template;
 use App\Factory\VacancyFactory;
@@ -28,7 +29,7 @@ foreach ($branches as $key => $branch) {
 }
 
 $branches = array_filter($branches, static function ($item) {
-	return $item instanceof \Timber\Term;
+	return $item instanceof Term;
 });
 
 

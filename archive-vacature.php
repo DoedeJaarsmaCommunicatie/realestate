@@ -47,6 +47,7 @@ $context['organisations'] = get_terms([
 ]);
 
 $context['query'] = $wp_query;
+$context['post'] = new \Timber\Post();
 
 if (isset($wp_query->query_vars['branche'])) {
 	$context['branch'] = Timber::get_term($wp_query->query_vars['branche'], 'branche');

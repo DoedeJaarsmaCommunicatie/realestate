@@ -12,6 +12,8 @@ const purger = mix.inProduction()
         ],
 
         defaultExtractor: content => content.match(/[\w-\/:]+(?<!:)/g) || [],
+
+        whitelist: ['mb-2'],
       }),
     ]
   : [];

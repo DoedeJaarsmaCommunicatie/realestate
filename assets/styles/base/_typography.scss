@@ -1,5 +1,6 @@
 @use '../abstracts' as *;
 
+/* purgecss start ignore */
 h1,
 h2,
 h3,
@@ -26,7 +27,9 @@ p {
 }
 
 .content {
+  h1,
   h2 {
+    font-size: 1.875rem;
     margin-bottom: 1rem;
   }
 
@@ -39,6 +42,12 @@ p {
   a:not(.childnavi) {
     color: $primary;
     text-decoration: underline;
+  }
+  ul {
+    margin-bottom: .5rem;
+  }
+  strong {
+    font-weight: bold;
   }
 }
 
@@ -64,3 +73,5 @@ ul {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* purgecss end ignore */

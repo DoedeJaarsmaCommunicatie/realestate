@@ -11,3 +11,16 @@
     }
   }
 }
+
+.branch-description--wrapper {
+  display: flex;
+  .branch-description {
+    flex: 1 1 80%;
+  }
+
+  .branch-icon {
+    flex: 1 1 auto;
+    height: 50px;
+    object-fit: contain;
+  }
+}
