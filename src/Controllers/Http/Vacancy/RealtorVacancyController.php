@@ -2,25 +2,11 @@
 
 namespace App\Controllers\Http\Vacancy;
 
-class RealtorVacancyController
+class RealtorVacancyController extends VacancyController
 {
 	public static function route(array $params): void
 	{
-		$query = [
-			'post_type' => 'vacature',
-			'meta_query' => [
-				'relation' => 'OR',
-			],
-			'tax_query' => [
-				'relation' => 'AND',
-				[
-					'taxonomy' => 'branche',
-					'terms' => 'makelaar',
-					'field' => 'slug'
-				]
-			],
-			'posts_per_page' => 10,
-		];
+		$query = static::getParams(['makelaardij', 'makelaar']);
 
 		if (isset($params['vg'])) {
 			$query['tax_query'] []= [
@@ -54,6 +40,6 @@ class RealtorVacancyController
 			$query['paged'] = $params['pg'];
 		}
 
-		\Routes::load('archive-vacature-makelaar.php', $params, $query);
+		\Routes::load('taxonomy-brance-makelaar.php', $params, $query);
 	}
 }

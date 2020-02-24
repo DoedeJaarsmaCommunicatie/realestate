@@ -52,18 +52,6 @@
                                 </label>
                             </div>
                         {% endfor %}
-                        <div class="input-control block">
-                            <label for="vakgebied_other" class="checkarea">
-                                {{ checkbox(
-                                    'vakgebied_other',
-                                    'overig',
-                                    'overig',
-                                    'vakgebied',
-                                    'overig' in selected_vakgebieden
-                                ) }}
-                                {{ label('Overig') }}
-                            </label>
-                        </div>
                     </div>
 
                     <strong class="block mt-4">{{ __('Organisatie', 'ppmm') }}</strong>

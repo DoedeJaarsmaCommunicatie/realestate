@@ -2,25 +2,11 @@
 
 namespace App\Controllers\Http\Vacancy;
 
-class FinanceVacancyController
+class FinanceVacancyController extends VacancyController
 {
 	public static function route(array $params): void
 	{
-		$query = [
-			'post_type' => 'vacature',
-			'meta_query' => [
-				'relation' => 'OR',
-			],
-			'tax_query' => [
-				'relation' => 'AND',
-				[
-					'taxonomy' => 'branche',
-					'terms' => 'vastgoed',
-					'field' => 'slug'
-				]
-			],
-			'posts_per_page' => 10,
-		];
+		$query = static::getParams('finance');
 
 		if (isset($params['vg'])) {
 			$query['tax_query'] []= [

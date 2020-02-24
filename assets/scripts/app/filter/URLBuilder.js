@@ -38,12 +38,13 @@ export default class URLBuilder {
     if (params.length < 2) {
       delete path[path.indexOf(this.target)];
       delete path[path.indexOf(this.slug)];
-      window.location.pathname = path.join('/');
     } else {
       delete params[params.indexOf(this.slug)];
       path[path.indexOf(this.target) + 1] = params.filter(Boolean).join(',');
-      window.location.pathname = path.join('/');
     }
+
+
+    window.location.pathname = `/${path.filter(Boolean).join('/')}/`;
   }
 
   injectParams() {
