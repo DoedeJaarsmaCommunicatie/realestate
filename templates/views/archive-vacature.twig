@@ -11,7 +11,7 @@
                         {{ __('Actuele %s vacatures', 'ppmm')|format(branch.title|lower) }}
                     {% endif %}
                 {% else %}
-                    {{ __('Actuele %s vacatures', 'ppmm')|format(query.query_vars.branche) }}
+                    {{ __('Actuele vacatures', 'ppmm') }}
                 {% endif %}
 
                 {% if query.query_vars.regio %}
