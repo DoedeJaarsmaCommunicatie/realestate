@@ -51,7 +51,7 @@ $context['query'] = $wp_query;
 $context['post'] = new Post();
 
 if (isset($wp_query->query_vars['branche'])) {
-	$context['branch'] = Timber::get_term($wp_query->query_vars['branche'], 'branche');
+	$context['selected_branch'] = Timber::get_term(get_term_by('slug', $wp_query->query_vars['branche'], 'branche'));
 } else {
 	$context['branch'] = false;
 }

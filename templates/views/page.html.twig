@@ -16,7 +16,7 @@
         </div>
     </header>
     <main class="container mx-auto md:flex md:py-20 p-8">
-        {% if post.children or post.parent.children %}
+        {% if post.children|length > 1 or post.parent.children|length > 1 %}
             <aside class="md:w-1/4 py-8 hidden md:block">
                 <nav class="border-l-12 border-secondary-500 p-8 bg-primary-200 content sticky" style="top: 7rem;">
                     {% if post.children and not post.parent %}

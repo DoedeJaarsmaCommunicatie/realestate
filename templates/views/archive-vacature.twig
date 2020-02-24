@@ -4,11 +4,11 @@
     <header class="container mx-auto pt-8 md:pt-24 px-8 md:px-0">
         <div class="md:w-2/3 md:ml-auto">
             <h1 class="text-4xl text-secondary-500 mb-4">
-                {% if branch %}
-                    {% if branch.slug is same as('interim') %}
-                        {{ __('Actuele %s opdrachten en projecten', 'ppmm')|format(branch.title|lower) }}
+                {% if selected_branch %}
+                    {% if selected_branch.slug is same as('interim') %}
+                        {{ __('Actuele %s opdrachten en projecten', 'ppmm')|format(selected_branch.title|lower) }}
                     {% else %}
-                        {{ __('Actuele %s vacatures', 'ppmm')|format(branch.title|lower) }}
+                        {{ __('Actuele %s vacatures', 'ppmm')|format(selected_branch.title|lower) }}
                     {% endif %}
                 {% else %}
                     {{ __('Actuele vacatures', 'ppmm') }}

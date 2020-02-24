@@ -16,28 +16,28 @@
         </div>
     </header>
     <main class="container mx-auto md:flex md:py-20 p-8">
-        {% if post.children or post.parent.children %}
-        <aside class="md:w-1/4 py-8 hidden md:block">
-            <nav class="border-l-12 border-secondary-500 p-8 bg-primary-200 content sticky" style="top: 2rem;">
-                {% if post.children and not post.parent %}
-                    <ul>
-                        {% for child in post.children('page') %}
-                            <li>
-                                <a href="{{ child.link }}">{{ child.title }}</a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                {% elseif post.parent.children %}
-                    <ul>
-                        {% for child in post.parent.children('page') %}
-                            <li>
-                                <a href="{{ child.link }}" class="childnavi {{ post.id == child.id? 'active' : '' }}">{{ child.title }}</a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
-            </nav>
-        </aside>
+        {% if post.children|length > 1 or post.parent.children|length > 1 %}
+            <aside class="md:w-1/4 py-8 hidden md:block">
+                <nav class="border-l-12 border-secondary-500 p-8 bg-primary-200 content sticky" style="top: 2rem;">
+                    {% if post.children and not post.parent %}
+                        <ul>
+                            {% for child in post.children('page') %}
+                                <li>
+                                    <a href="{{ child.link }}">{{ child.title }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% elseif post.parent.children %}
+                        <ul>
+                            {% for child in post.parent.children('page') %}
+                                <li>
+                                    <a href="{{ child.link }}" class="childnavi {{ post.id == child.id? 'active' : '' }}">{{ child.title }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </nav>
+            </aside>
         {% endif %}
         <section class="content w-full py-8 md:w-2/3 ml-auto">
             {{ post.content|wpautop }}
