@@ -164,6 +164,7 @@ class ComposerStaticInitd478b73b9349bee22e9b4091ab0df69b
         'App\\Providers\\OptionsServiceProvider' => __DIR__ . '/../..' . '/src/Providers/OptionsServiceProvider.php',
         'App\\Providers\\RewriteServiceProvider' => __DIR__ . '/../..' . '/src/Providers/RewriteServiceProvider.php',
         'App\\Providers\\ServiceProvider' => __DIR__ . '/../..' . '/src/Providers/ServiceProvider.php',
+        'App\\Providers\\ShortcodeServiceProvider' => __DIR__ . '/../..' . '/src/Providers/ShortcodeServiceProvider.php',
         'Asm89\\Twig\\CacheExtension\\CacheProviderInterface' => __DIR__ . '/..' . '/asm89/twig-cache-extension/lib/Asm89/Twig/CacheExtension/CacheProviderInterface.php',
         'Asm89\\Twig\\CacheExtension\\CacheProvider\\DoctrineCacheAdapter' => __DIR__ . '/..' . '/asm89/twig-cache-extension/lib/Asm89/Twig/CacheExtension/CacheProvider/DoctrineCacheAdapter.php',
         'Asm89\\Twig\\CacheExtension\\CacheProvider\\PsrCacheAdapter' => __DIR__ . '/..' . '/asm89/twig-cache-extension/lib/Asm89/Twig/CacheExtension/CacheProvider/PsrCacheAdapter.php',

@@ -35,6 +35,7 @@ return array(
     'App\\Providers\\OptionsServiceProvider' => $baseDir . '/src/Providers/OptionsServiceProvider.php',
     'App\\Providers\\RewriteServiceProvider' => $baseDir . '/src/Providers/RewriteServiceProvider.php',
     'App\\Providers\\ServiceProvider' => $baseDir . '/src/Providers/ServiceProvider.php',
+    'App\\Providers\\ShortcodeServiceProvider' => $baseDir . '/src/Providers/ShortcodeServiceProvider.php',
     'Asm89\\Twig\\CacheExtension\\CacheProviderInterface' => $vendorDir . '/asm89/twig-cache-extension/lib/Asm89/Twig/CacheExtension/CacheProviderInterface.php',
     'Asm89\\Twig\\CacheExtension\\CacheProvider\\DoctrineCacheAdapter' => $vendorDir . '/asm89/twig-cache-extension/lib/Asm89/Twig/CacheExtension/CacheProvider/DoctrineCacheAdapter.php',
     'Asm89\\Twig\\CacheExtension\\CacheProvider\\PsrCacheAdapter' => $vendorDir . '/asm89/twig-cache-extension/lib/Asm89/Twig/CacheExtension/CacheProvider/PsrCacheAdapter.php',

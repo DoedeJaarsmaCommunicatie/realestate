@@ -3,7 +3,7 @@
     "/dist/styles/main.css": "/dist/styles/main.css",
     "/dist/scripts/routes/common.js": "/dist/scripts/routes/common.js",
     "/dist/scripts/routes/home.js": "/dist/scripts/routes/home.js",
-    "/dist/scripts/filter.js": "/dist/scripts/filter.js",
+    "/dist/scripts/main-old.js": "/dist/scripts/main-old.js",
     "/dist/scripts/mc-app.vue.js": "/dist/scripts/mc-app.vue.js",
     "/dist/scripts/scrollto.js": "/dist/scripts/scrollto.js"
 }

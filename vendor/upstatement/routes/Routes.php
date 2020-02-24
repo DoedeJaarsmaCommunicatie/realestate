@@ -28,9 +28,9 @@ class Routes {
 		global $upstatement_routes;
 		if (isset($upstatement_routes->router)) {
 			$route = $upstatement_routes->router->match();
-			
+
 			unset($upstatement_routes->router);
-			
+
 			if ($route && isset($route['target'])) {
 				if ( isset($route['params']) ) {
 					call_user_func($route['target'], $route['params']);
@@ -90,7 +90,7 @@ class Routes {
 	}
 
 	/**
-	 * @param array $template           A php file to load (ex: 'single.php')
+	 * @param string $template           A php file to load (ex: 'single.php')
 	 * @param array|bool $tparams       An array of data to send to the php file. Inside the php file
 	 *                                  this data can be accessed via:
 	 *                                  global $params;

@@ -12,6 +12,8 @@ Timber::$locations = [
 	get_stylesheet_directory() . '/templates/',
 ];
 
+remove_action('template_redirect', 'redirect_canonical');
+
 function my_pre_get_posts($query)
 {
 	// do not modify queries in the admin or homepage or feed

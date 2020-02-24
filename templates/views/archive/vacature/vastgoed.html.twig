@@ -1,0 +1,131 @@
+{% extends 'layouts/app.twig' %}
+{% from 'components/filter.html.twig' import checkbox, label %}
+
+{% block content %}
+    <header class="container mx-auto pt-8 md:pt-24 px-8 md:px-0">
+        <div class="md:w-2/3 md:ml-auto">
+            <h1 class="text-4xl text-secondary-500 mb-4">
+                {{ __('Actuele %s vacatures', 'ppmm')|format(selected_branch.title|lower) }}
+
+                {% if query.query_vars.regio %}
+                    {{ __('in %s')|format(query.query_vars.regio|join(' &amp; ')) }}
+                {% endif %}
+            </h1>
+            {% if selected_branch %}
+                <section class="branch-description--wrapper">
+                    <p class="branch-description">
+                        {{ selected_branch.description }}
+                    </p>
+                    <img src="{{ Image(selected_branch.meta('icon')).src }}" class="branch-icon" alt="{{ selected_branch.title }}" />
+                </section>
+            {% endif %}
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <section class="container mx-auto md:flex py-8 px-8 md:px-0">
+        <!-- Filter -->
+        <aside id="vacature_filter" class="md:w-1/4">
+            <button onclick="toggleFilter()" class="button w-full mb-4 md:hidden"><i class="fas fa-filter"></i></button>
+            <script>
+				function toggleFilter() {
+					document.querySelector('.filter-vacancy').classList.toggle('hidden');
+				}
+            </script>
+            <form method="get" class="filter-vacancy hidden md:block">
+                <div class="form-group border-l-12 border-secondary-500 bg-primary-200 p-8">
+                    {% include 'partials/search-form.twig' %}
+
+                    <strong class="block">{{ __('Vakgebied', 'ppmm') }}</strong>
+                    <div class="form-group-controls">
+                        {% for vakgebied in vakgebieden %}
+                            <div class="input-control block">
+                                <label for="vakgebied_{{ vakgebied.term_id }}" class="checkarea">
+                                    {{ checkbox(
+                                        'vakgebied_' ~ vakgebied.term_id,
+                                        vakgebied.slug,
+                                        vakgebied.slug,
+                                        'vakgebied',
+                                        vakgebied.slug in selected_vakgebieden
+                                    ) }}
+                                    {{ label(vakgebied.name) }}
+                                </label>
+                            </div>
+                        {% endfor %}
+                        <div class="input-control block">
+                            <label for="vakgebied_other" class="checkarea">
+                                {{ checkbox(
+                                    'vakgebied_other',
+                                    'overig',
+                                    'overig',
+                                    'vakgebied',
+                                    'overig' in selected_vakgebieden
+                                ) }}
+                                {{ label('Overig') }}
+                            </label>
+                        </div>
+                    </div>
+
+                    <strong class="block mt-4">{{ __('Organisatie', 'ppmm') }}</strong>
+                    <div class="form-group-controls">
+                        {% for organisation in organisations %}
+                            <div class="input-control block">
+                                <label for="organisatie_{{ organisation.term_id }}" class="checkarea">
+                                    {{ checkbox(
+                                        'organisatie_' ~ organisation.term_id,
+                                        organisation.slug,
+                                        organisation.slug,
+                                        'organisatie',
+                                        organisation.slug in selected_organisations
+                                    ) }}
+                                    {{ label(organisation.name) }}
+                                </label>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    <strong class="block mt-4">{{ __('Regio', 'ppmm') }}</strong>
+                    <div class="form-group-controls">
+                        {% for region in regions %}
+                            <div class="input-control block">
+                                <label for="regio_{{ region.term_id }}" class="checkarea">
+                                    {{ checkbox(
+                                        'regio_' ~ region.term_id,
+                                        region.slug,
+                                        region.slug,
+                                        'regio',
+                                        region.slug in selected_regions
+                                    ) }}
+                                    {{ label(region.name) }}
+                                </label>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                </div>
+            </form>
+        </aside>
+
+        <main class="md:w-2/3 ml-auto">
+            {% for post in posts %}
+                {{ include('partials/tease/vacature.twig', { post: post }) }}
+            {% else %}
+                <p>
+                    Er zijn geen vacatures gevonden die aan deze zoekopdracht voldoen.
+                    Probeer ergens anders op te filteren.
+                </p>
+            {% endfor %}
+
+            <aside id="pagination" class="flex justify-between">
+                <span class="text-secondary-500 hidden md:block">{{ __("%d van de %d vacatures", 'ppmm')|format(posts|length, query.found_posts) }}</span>
+                {{ include('partials/archive/pagination.twig') }}
+            </aside>
+            <p class="mt-4">
+                Ben je op zoek naar een functie bij een projectontwikkelaar, bouwonderneming, woningbouwcorporatie, vastgoedbelegger, (bedrijfs-) makelaardij, notariskantoor, advocatenkantoor, financieel adviesbureau, gespecialiseerd taxatiebureau of vastgoedbeheerder?
+            </p>
+            <p>
+                Real Estate Recruiters heeft veel vacatures bij gerenommeerde vastgoedorganisaties, makelaardijen, financiele en juridische organisaties. Zij zijn op zoek naar talentvolle professionals.
+            </p>
+        </main>
+    </section>
+{% endblock %}

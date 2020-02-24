@@ -39,7 +39,7 @@ class AssetServiceProvider implements ServiceProvider
 	{
 		do_action('werf8_pre_enqueue_scripts');
 		WP::addScript('main', WP::get_stylesheet_directory_uri() . '/dist/scripts/main.js');
-		WP::addScript('filter', WP::get_stylesheet_directory_uri() . '/dist/scripts/filter.js');
+		WP::addScript('main-old', WP::get_stylesheet_directory_uri() . '/dist/scripts/main-old.js');
 		WP::addScript('scrollto', WP::get_stylesheet_directory_uri() . '/dist/scripts/scrollto.js');
 		WP::enqueueScripts();
 		do_action('werf8_post_enqueue_scripts');

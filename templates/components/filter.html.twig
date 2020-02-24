@@ -1,0 +1,21 @@
+{% macro checkbox(
+    name,
+    value,
+    slug,
+    param,
+    checked = false
+    ) %}
+    <input type="checkbox"
+           class="checkbox"
+           name="{{ name }}"
+           id="{{ name }}"
+           value="{{ slug }}"
+           data-slug="{{ slug }}"
+           data-param="{{ param }}"
+            {{ checked? 'checked' : '' }}
+    >
+{% endmacro checkbox %}
+
+{% macro label(content) %}
+    <span class="label py-1 block">{{ content }}</span>
+{% endmacro label %}
