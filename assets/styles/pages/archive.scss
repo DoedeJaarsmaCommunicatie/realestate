@@ -15,11 +15,15 @@
 .branch-description--wrapper {
   display: flex;
   .branch-description {
-    flex: 1 1 80%;
+    flex-shrink: 1;
+    flex-grow: 1;
+    flex-basis: 80%;
   }
 
   .branch-icon {
-    flex: 1 1 auto;
+    flex-shrink: 1;
+    flex-grow: 1;
+    flex-basis: auto;
     height: 50px;
     object-fit: contain;
   }

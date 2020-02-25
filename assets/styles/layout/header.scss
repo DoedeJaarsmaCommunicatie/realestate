@@ -66,7 +66,9 @@
     }
     flex-direction: column;
     > .topbar-menu-item {
-      flex: 1 1 auto
+      flex-shrink: 1;
+      flex-grow: 1;
+      flex-basis: auto;
     }
   }
 
