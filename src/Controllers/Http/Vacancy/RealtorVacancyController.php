@@ -40,6 +40,6 @@ class RealtorVacancyController extends VacancyController
 			$query['paged'] = $params['pg'];
 		}
 
-		\Routes::load('taxonomy-brance-makelaar.php', $params, $query);
+		\Routes::load('taxonomy-branche-makelaar.php', $params, $query);
 	}
 }

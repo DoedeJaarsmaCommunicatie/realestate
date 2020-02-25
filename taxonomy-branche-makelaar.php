@@ -9,7 +9,7 @@ use App\Helpers\Template;
 $accepted_vakgebieden = ['Commerciële binnendienst', 'Woningmakelaardij A-RMT/ K-RMT', 'Woningmakelaardij RMT/ RM', '(Kantoor)management', 'Bedrijfsmakelaardij', 'Taxeren RT', 'Nieuwbouw'];
 $accepted_organisations = [
 	'Woningmakelaar',
-	'Bedrijfsmakelaar',
+	'Bedrijfsmakelaardij',
 	'Taxatiebureau',
 ];
 
