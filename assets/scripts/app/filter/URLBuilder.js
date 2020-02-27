@@ -18,7 +18,6 @@ export default class URLBuilder {
   }
 
   build() {
-    debugger;
     if (this.hasParams()) {
       if (this.add) {
         debugger;
