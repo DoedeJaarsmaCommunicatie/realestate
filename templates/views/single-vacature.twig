@@ -91,15 +91,15 @@
                         {{ _opdrachtgevers[0].description }}
                     </section>
                 </div>
-            {% elseif post.meta('opdrachtgever') %}
+            {% elseif fn('get_field', 'opdrachtgever') %}
                 <div class="md:flex mb-8">
                     <aside class="md:w-1/5">
                         <h4 class="text-2xl">
-                            {{ __('Werken bij <br> %s', 'ppmm')|format(post.meta('opdrachtgever').naam) }}
+                            {{ __('Werken bij <br> %s', 'ppmm')|format(fn('get_field', 'opdrachtgever').naam) }}
                         </h4>
                     </aside>
                     <section class="md:w-2/3">
-                        {{ post.meta('opdrachtgever').about }}
+                        {{ fn('get_field', 'opdrachtgever').about }}
                     </section>
                 </div>
             {% endif %}
